@@ -1,11 +1,26 @@
-// lib/pages/halaman_profil.dart (versi sederhana)
+// lib/pages/halaman_profil.dart (tulis ulang seluruh berkas)
 import 'package:flutter/material.dart';
+import '../navigation/app_routes.dart';
 class HalamanProfil extends StatelessWidget {
  const HalamanProfil({super.key});
  @override
  Widget build(BuildContext context) {
- return const Center(
- child: Text('Halaman Profil', style: TextStyle(fontSize: 20)),
+ // Tanpa Scaffold, sebab halaman ini tampil di dalam kerangka navigasi.
+ return ListView(
+ padding: const EdgeInsets.all(16),
+ children: [
+ const CircleAvatar(radius: 40, child: Icon(Icons.person, size: 40)),
+ const SizedBox(height: 16),
+ const Center(child: Text('Nama Mahasiswa')),
+ const Center(child: Text('NIM 0000000000')),
+ const SizedBox(height: 24),
+ // Tombol inilah jalan masuk ke halaman catatan.
+ ElevatedButton.icon(
+ onPressed: () => Navigator.pushNamed(context, AppRoutes.catatan),
+ icon: const Icon(Icons.note_alt_outlined),
+ label: const Text('Buka Halaman Catatan'),
+ ),
+ ],
  );
  }
 }

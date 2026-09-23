@@ -3,15 +3,22 @@ import 'package:flutter/material.dart';
 import '../pages/halaman_detail.dart';
 import '../pages/halaman_pengaturan.dart';
 import 'kerangka_navigasi.dart';
+import '../pages/halaman_catatan.dart';
+
 class AppRoutes {
  static const String beranda = '/';
  static const String pengaturan = '/pengaturan';
  static const String detail = '/detail';
+
+//  TAMBAHAN 2 - pada kelompok konstanta nama route
+ static const String catatan = '/catatan';
+ 
  static Map<String, WidgetBuilder> daftarRoute() {
  return {
  // route beranda kini mengarah ke kerangka navigasi
  beranda: (context) => const KerangkaNavigasi(),
  pengaturan: (context) => const HalamanPengaturan(),
+ catatan: (context) => const HalamanCatatan(),
  };
  }
  static Route<dynamic>? bentukRoute(RouteSettings settings) {
