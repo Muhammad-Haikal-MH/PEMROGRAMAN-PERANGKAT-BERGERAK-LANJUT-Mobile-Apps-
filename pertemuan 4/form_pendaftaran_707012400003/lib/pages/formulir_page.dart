@@ -120,12 +120,17 @@ class _FormulirPageState extends State<FormulirPage> {
               onChanged: (nilai) =>
                   setState(() => setujuSyarat = nilai ?? false),
             ),
-            ...['Pagi', 'Siang', 'Sore'].map(
-              (sesi) => RadioListTile<String>(
-                title: Text('Sesi $sesi'),
-                value: sesi,
-                groupValue: sesiTerpilih,
-                onChanged: (nilai) => setState(() => sesiTerpilih = nilai),
+            RadioGroup<String>(
+              groupValue: sesiTerpilih,
+              onChanged: (nilai) => setState(() => sesiTerpilih = nilai),
+              child: Column(
+                children: [
+                  for (final sesi in ['Pagi', 'Siang', 'Sore'])
+                    RadioListTile<String>(
+                      title: Text('Sesi $sesi'),
+                      value: sesi,
+                    ),
+                ],
               ),
             ),
             const SizedBox(height: 12),
